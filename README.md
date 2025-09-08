@@ -2,6 +2,8 @@
 
 A beautiful dark theme for Obsidian that brings GitHub's dimmed dark color palette to your notes. This theme uses the official color palette from [`@primer/primitives`](https://github.com/primer/primitives) to provide a familiar, GitHub-inspired experience.
 
+![Theme Preview](https://github.com/user-attachments/assets/bddbb269-5d44-406e-9a1d-17a52ffea963)
+
 ## Features
 
 - **Authentic GitHub Colors**: Uses the official GitHub dimmed dark color palette from Primer Design System
