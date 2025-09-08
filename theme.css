@@ -1,0 +1,551 @@
+/*
+GitHub Dimmed Dark Theme for Obsidian
+Based on GitHub's dimmed dark color palette from @primer/primitives
+*/
+
+.theme-dark,
+.theme-light {
+  /* Force dark mode */
+  --color-scheme: dark;
+  --highlight-mix-blend-mode: lighten;
+  --mono-rgb-0: 0, 0, 0;
+  --mono-rgb-100: 255, 255, 255;
+
+  /* GitHub Dimmed Dark Base Colors */
+  --github-canvas-default: #22272e;
+  --github-canvas-overlay: #2d333b;
+  --github-canvas-inset: #1c2128;
+  --github-canvas-subtle: #2d333b;
+  
+  --github-border-default: #444c56;
+  --github-border-muted: #373e47;
+  --github-border-subtle: #636c76;
+  
+  --github-fg-default: #adbac7;
+  --github-fg-muted: #768390;
+  --github-fg-subtle: #636c76;
+  --github-fg-on-emphasis: #cdd9e5;
+  
+  /* Accent Colors */
+  --github-accent-fg: #539bf5;
+  --github-accent-emphasis: #4184e4;
+  --github-accent-subtle: rgba(65, 132, 228, 0.15);
+  
+  /* Success (Green) */
+  --github-success-fg: #57ab5a;
+  --github-success-emphasis: #46954a;
+  --github-success-subtle: rgba(70, 149, 74, 0.15);
+  
+  /* Warning (Yellow) */
+  --github-warning-fg: #c69026;
+  --github-warning-emphasis: #ae7c14;
+  --github-warning-subtle: rgba(174, 124, 20, 0.15);
+  
+  /* Danger (Red) */
+  --github-danger-fg: #f47067;
+  --github-danger-emphasis: #e5534b;
+  --github-danger-subtle: rgba(229, 83, 75, 0.15);
+  
+  /* Neutral */
+  --github-neutral-emphasis: #636c76;
+  --github-neutral-subtle: rgba(99, 108, 118, 0.15);
+  
+  /* Purple */
+  --github-purple-fg: #b083f0;
+  --github-purple-emphasis: #986ee2;
+  
+  /* Orange */
+  --github-orange-fg: #e0823d;
+  --github-orange-emphasis: #cc6b2c;
+  
+  /* Pink */
+  --github-pink-fg: #e275ad;
+  --github-pink-emphasis: #c96198;
+
+  /* Obsidian Color Variables */
+  --background-primary: var(--github-canvas-default);
+  --background-primary-alt: var(--github-canvas-overlay);
+  --background-secondary: var(--github-canvas-inset);
+  --background-secondary-alt: var(--github-canvas-subtle);
+  --background-modifier-border: var(--github-border-default);
+  --background-modifier-border-hover: var(--github-border-subtle);
+  --background-modifier-border-focus: var(--github-accent-fg);
+  --background-modifier-error-rgb: 244, 112, 103;
+  --background-modifier-error: rgb(var(--background-modifier-error-rgb));
+  --background-modifier-error-hover: rgb(var(--background-modifier-error-rgb));
+  --background-modifier-success-rgb: 87, 171, 90;
+  --background-modifier-success: rgb(var(--background-modifier-success-rgb));
+  --background-modifier-message: rgba(0, 0, 0, 0.9);
+  --background-modifier-form-field: var(--github-canvas-overlay);
+  --background-modifier-form-field-highlighted: var(--github-canvas-overlay);
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+  --background-modifier-cover: rgba(34, 39, 46, 0.8);
+  
+  /* Text Colors */
+  --text-normal: var(--github-fg-default);
+  --text-muted: var(--github-fg-muted);
+  --text-faint: var(--github-fg-subtle);
+  --text-on-accent: var(--github-fg-on-emphasis);
+  --text-on-accent-inverted: var(--github-canvas-default);
+  --text-error: var(--github-danger-fg);
+  --text-warning: var(--github-warning-fg);
+  --text-success: var(--github-success-fg);
+  --text-selection: var(--github-accent-subtle);
+  --text-accent: var(--github-accent-fg);
+  --text-accent-hover: var(--github-accent-emphasis);
+  
+  /* Heading Colors - GitHub style */
+  --text-title-h1: var(--github-fg-default);
+  --text-title-h2: var(--github-fg-default);
+  --text-title-h3: var(--github-fg-default);
+  --text-title-h4: var(--github-fg-default);
+  --text-title-h5: var(--github-fg-default);
+  --text-title-h6: var(--github-fg-default);
+  
+  /* Interactive Elements */
+  --interactive-normal: var(--github-canvas-overlay);
+  --interactive-hover: var(--github-border-muted);
+  --interactive-accent: var(--github-accent-fg);
+  --interactive-accent-rgb: 83, 155, 245;
+  --interactive-accent-hover: var(--github-accent-emphasis);
+  --interactive-success: var(--github-success-fg);
+  
+  /* Canvas Colors */
+  --canvas-color-1: 244, 112, 103; /* Red */
+  --canvas-color-2: 224, 130, 61;  /* Orange */
+  --canvas-color-3: 198, 144, 38;  /* Yellow */
+  --canvas-color-4: 87, 171, 90;   /* Green */
+  --canvas-color-5: 83, 155, 245;  /* Blue */
+  --canvas-color-6: 176, 131, 240; /* Purple */
+  
+  /* Code Colors */
+  --code-normal: var(--github-fg-default);
+  --code-background: var(--github-canvas-inset);
+  --code-comment: var(--github-fg-muted);
+  --code-function: var(--github-purple-fg);
+  --code-important: var(--github-danger-fg);
+  --code-keyword: var(--github-accent-fg);
+  --code-operator: var(--github-fg-default);
+  --code-property: var(--github-success-fg);
+  --code-punctuation: var(--github-fg-muted);
+  --code-string: var(--github-orange-fg);
+  --code-tag: var(--github-success-fg);
+  --code-value: var(--github-purple-fg);
+  
+  /* Input Colors */
+  --input-shadow: 0 0 0 1px var(--github-border-default);
+  --input-shadow-hover: 0 0 0 1px var(--github-border-subtle);
+  
+  /* Shadow */
+  --shadow-s: 0px 1px 2px rgba(0, 0, 0, 0.4), 0px 3.4px 6.7px rgba(0, 0, 0, 0.5), 0px 15px 30px rgba(0, 0, 0, 0.6);
+  --shadow-l: 0px 1.8px 7.3px rgba(0, 0, 0, 0.3), 0px 6.3px 24.7px rgba(0, 0, 0, 0.4), 0px 30px 90px rgba(0, 0, 0, 0.5);
+  
+  /* Accent HSL */
+  --accent-h: 213;
+  --accent-s: 88%;
+  --accent-l: 70%;
+  --color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
+  --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --color-accent-1: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 5%));
+  --color-accent-2: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 5%));
+  
+  /* Legacy color variables */
+  --color-red: var(--github-danger-fg);
+  --color-orange: var(--github-orange-fg);
+  --color-yellow: var(--github-warning-fg);
+  --color-green: var(--github-success-fg);
+  --color-cyan: #6cb6ff;
+  --color-blue: var(--github-accent-fg);
+  --color-purple: var(--github-purple-fg);
+  --color-pink: var(--github-pink-fg);
+  
+  --color-red-rgb: 244, 112, 103;
+  --color-orange-rgb: 224, 130, 61;
+  --color-yellow-rgb: 198, 144, 38;
+  --color-green-rgb: 87, 171, 90;
+  --color-cyan-rgb: 108, 182, 255;
+  --color-blue-rgb: 83, 155, 245;
+  --color-purple-rgb: 176, 131, 240;
+  --color-pink-rgb: 226, 117, 173;
+  
+  /* Base colors */
+  --color-base-00: var(--github-canvas-inset);
+  --color-base-05: var(--github-canvas-default);
+  --color-base-10: var(--github-canvas-overlay);
+  --color-base-20: var(--github-border-muted);
+  --color-base-25: var(--github-border-default);
+  --color-base-30: var(--github-border-subtle);
+  --color-base-35: #768390;
+  --color-base-40: #636c76;
+  --color-base-50: #545d68;
+  --color-base-60: var(--github-fg-muted);
+  --color-base-70: #909dab;
+  --color-base-100: var(--github-fg-default);
+}
+
+/* Links */
+a {
+  color: var(--github-accent-fg);
+}
+
+a:hover {
+  color: var(--github-accent-emphasis);
+}
+
+.external-link {
+  color: var(--github-accent-fg);
+}
+
+.internal-link {
+  color: var(--github-accent-fg);
+}
+
+.internal-link.is-unresolved {
+  color: var(--github-danger-fg);
+  opacity: 0.8;
+}
+
+/* Headings */
+.markdown-preview-view h1,
+.markdown-rendered h1,
+.cm-header-1 {
+  color: var(--github-fg-default);
+  font-weight: 600;
+}
+
+.markdown-preview-view h2,
+.markdown-rendered h2,
+.cm-header-2 {
+  color: var(--github-fg-default);
+  font-weight: 600;
+}
+
+.markdown-preview-view h3,
+.markdown-rendered h3,
+.cm-header-3 {
+  color: var(--github-fg-default);
+  font-weight: 600;
+}
+
+.markdown-preview-view h4,
+.markdown-rendered h4,
+.cm-header-4 {
+  color: var(--github-fg-default);
+  font-weight: 600;
+}
+
+.markdown-preview-view h5,
+.markdown-rendered h5,
+.cm-header-5 {
+  color: var(--github-fg-default);
+  font-weight: 600;
+}
+
+.markdown-preview-view h6,
+.markdown-rendered h6,
+.cm-header-6 {
+  color: var(--github-fg-default);
+  font-weight: 600;
+}
+
+/* Code blocks */
+code {
+  background-color: var(--github-canvas-overlay);
+  color: var(--github-fg-default);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+pre code {
+  background-color: var(--github-canvas-inset);
+  color: var(--github-fg-default);
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid var(--github-border-default);
+}
+
+.cm-inline-code {
+  background-color: var(--github-canvas-overlay) !important;
+  color: var(--github-fg-default) !important;
+}
+
+/* Syntax highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--github-fg-muted);
+}
+
+.token.punctuation {
+  color: var(--github-fg-default);
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--github-success-fg);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--github-orange-fg);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: var(--github-accent-fg);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--github-purple-fg);
+}
+
+.token.function,
+.token.class-name {
+  color: var(--github-danger-fg);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--github-warning-fg);
+}
+
+/* Tags */
+.tag {
+  color: var(--github-success-fg);
+  background-color: var(--github-success-subtle);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.cm-hashtag {
+  color: var(--github-success-fg) !important;
+}
+
+/* Bold and italic */
+strong {
+  color: var(--github-fg-default);
+  font-weight: 600;
+}
+
+em {
+  color: var(--github-fg-default);
+  font-style: italic;
+}
+
+.cm-strong {
+  color: var(--github-fg-default);
+  font-weight: 600;
+}
+
+.cm-em {
+  color: var(--github-fg-default);
+  font-style: italic;
+}
+
+/* Highlights */
+mark {
+  background-color: var(--github-warning-subtle);
+  color: var(--github-fg-default);
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+.cm-highlight {
+  background-color: var(--github-warning-subtle) !important;
+  color: var(--github-fg-default) !important;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--github-border-default);
+  background-color: var(--github-canvas-overlay);
+  padding: 8px 16px;
+  margin: 16px 0;
+  border-radius: 0 6px 6px 0;
+  color: var(--github-fg-muted);
+}
+
+.cm-quote {
+  color: var(--github-fg-muted) !important;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+th,
+td {
+  border: 1px solid var(--github-border-default);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--github-canvas-overlay);
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: var(--github-canvas-overlay);
+}
+
+/* Task lists */
+.task-list-item-checkbox {
+  margin-right: 8px;
+}
+
+.task-list-item-checkbox:checked {
+  accent-color: var(--github-success-fg);
+}
+
+/* Search */
+.search-result-file-match {
+  color: var(--github-accent-fg);
+  background-color: var(--github-accent-subtle);
+}
+
+/* Side dock */
+.side-dock-ribbon-tab.is-active {
+  background-color: var(--github-canvas-overlay);
+  color: var(--github-accent-fg);
+}
+
+.nav-file-title.is-active {
+  background-color: var(--github-canvas-overlay);
+  color: var(--github-accent-fg);
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover {
+  background-color: var(--github-canvas-overlay);
+}
+
+/* Buttons */
+.mod-cta {
+  background-color: var(--github-success-fg);
+  color: var(--github-fg-on-emphasis);
+}
+
+.mod-cta:hover {
+  background-color: var(--github-success-emphasis);
+}
+
+/* Status bar */
+.status-bar {
+  background-color: var(--github-canvas-inset);
+  border-top: 1px solid var(--github-border-default);
+}
+
+/* Workspace */
+.workspace-leaf-content {
+  background-color: var(--github-canvas-default);
+}
+
+.workspace-ribbon.mod-left,
+.workspace-ribbon.mod-right {
+  background-color: var(--github-canvas-overlay);
+  border-color: var(--github-border-default);
+}
+
+/* Modal */
+.modal {
+  background-color: var(--github-canvas-default);
+  border: 1px solid var(--github-border-default);
+  border-radius: 8px;
+}
+
+.modal-title {
+  color: var(--github-fg-default);
+}
+
+/* Popover */
+.popover {
+  background-color: var(--github-canvas-default);
+  border: 1px solid var(--github-border-default);
+  border-radius: 8px;
+  box-shadow: var(--shadow-l);
+}
+
+/* Graph view */
+.graph-view.color-fill {
+  color: var(--github-accent-fg);
+}
+
+.graph-view.color-line {
+  color: var(--github-border-default);
+}
+
+/* Calendar plugin compatibility */
+.day-number {
+  color: var(--github-fg-default);
+}
+
+.day-number.today {
+  color: var(--github-accent-fg);
+  background-color: var(--github-accent-subtle);
+}
+
+/* Kanban plugin compatibility */
+.kanban-plugin__item {
+  background-color: var(--github-canvas-overlay);
+  border: 1px solid var(--github-border-default);
+}
+
+/* File explorer */
+.nav-file-tag {
+  color: var(--github-fg-muted);
+}
+
+.nav-file.is-active .nav-file-tag {
+  color: var(--github-fg-default);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--github-canvas-default);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--github-border-default);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--github-border-subtle);
+}
+
+/* Print styles */
+@media print {
+  .theme-dark {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  .markdown-preview-view {
+    background-color: white !important;
+    color: black !important;
+  }
+}
